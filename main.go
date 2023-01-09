@@ -6,12 +6,16 @@ import (
 	"io/ioutil"
 	"log"
 	"path/filepath"
+	"time"
 )
 
 func main() {
-	var baseDir string = "C:/xampp/htdocs/mengundang/app"
+	start := time.Now()
+	var baseDir string = "C:/xampp/htdocs/mengundang"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
-	printDirectoryMap(1, baseDir, "   ", ".git")
+	printDirectoryMap(1, baseDir, "   ", "node_modules")
+	finish := time.Since(start)
+	fmt.Println("\n Mapping duration: " + finish.String())
 }
 
 func ErrorHandler(err error) {
@@ -21,7 +25,8 @@ func ErrorHandler(err error) {
 }
 
 func printDirectoryMap(counter int, path, prefix, exclude string) {
-	if counter >= 8 {
+	// max 100 stacks
+	if counter >= 100 {
 		fmt.Println("::::::::::MAX PRINT::::::::::")
 		return
 	}
@@ -30,6 +35,7 @@ func printDirectoryMap(counter int, path, prefix, exclude string) {
 		err = errors.New(fmt.Sprint(err.Error(), "at counter:", counter))
 		ErrorHandler(err)
 	}
+
 	for i, file := range files {
 		if exclude == file.Name() {
 			continue
