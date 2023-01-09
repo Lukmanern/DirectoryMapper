@@ -30,6 +30,7 @@ func printDirectoryMap(counter int, path, prefix, exclude string) {
 		fmt.Println("::::::::::MAX PRINT::::::::::")
 		return
 	}
+	// Read all the files/ folders in the current directory.
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		err = errors.New(fmt.Sprint(err.Error(), "at counter:", counter))
@@ -37,10 +38,13 @@ func printDirectoryMap(counter int, path, prefix, exclude string) {
 	}
 
 	for i, file := range files {
+		// Skip exclude files
 		if exclude == file.Name() {
 			continue
 		}
 		var space string
+		// Determine the appropriate prefix to use based on 
+		// whether the current file is the last in the list.
 		if i == len(files)-1 {
 			fmt.Println(prefix + "└── " + file.Name())
 			// 4 white space
@@ -50,6 +54,8 @@ func printDirectoryMap(counter int, path, prefix, exclude string) {
 			// line + 3 white space
 			space = "│   "
 		}
+		// If the current file is a directory, 
+		// recursively call printDirectoryMap on it.
 		if file.IsDir() {
 			printDirectoryMap(counter+1, filepath.Join(path, file.Name()), prefix+space, exclude)
 		}
