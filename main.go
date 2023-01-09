@@ -13,7 +13,7 @@ func main() {
 	start := time.Now()
 	var baseDir string = "C:/xampp/htdocs/mengundang/app"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
-	printDirectoryMap(1, baseDir, "   ", "node_modules")
+	printDirectoryMap(0, baseDir, "   ", "node_modules")
 	finish := time.Since(start)
 	fmt.Println("\n Mapping duration: " + finish.String())
 }
@@ -24,8 +24,8 @@ func ErrorHandler(err error) {
 	}
 }
 
-func printDirectoryMap(counter int, path, prefix, exclude string) {
-	// max 100 stacks
+func printDirectoryMap(counter uint, path, prefix, exclude string) {
+	// max 100+ stacks
 	if counter >= 100 {
 		fmt.Println("::::::::::MAX PRINT::::::::::")
 		return
