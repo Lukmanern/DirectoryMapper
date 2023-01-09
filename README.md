@@ -11,8 +11,11 @@ printDirectoryMap(counter int, path string, prefix string, exclude string)
 ```
 
 `counter`: the current recursion depth/ stacks (should be initialized to 0).
+
 `path`: the path of the directory to print.
+
 `prefix`: a prefix string for formatting the output.
+
 `exclude`: the name of the file to exclude (if any).
 
 ## Note

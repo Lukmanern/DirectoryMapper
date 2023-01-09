@@ -1,6 +1,7 @@
 package main
 
 import (
+	"DirectoryMapper/banner"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -11,6 +12,7 @@ import (
 
 func main() {
 	start := time.Now()
+	banner.ShowBanner()
 	var baseDir string = "C:/xampp/htdocs/mengundang/app"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
 	printDirectoryMap(0, baseDir, "   ", "node_modules")
