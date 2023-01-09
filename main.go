@@ -11,7 +11,7 @@ import (
 
 func main() {
 	start := time.Now()
-	var baseDir string = "C:/xampp/htdocs/mengundang"
+	var baseDir string = "C:/xampp/htdocs/mengundang/app"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
 	printDirectoryMap(1, baseDir, "   ", "node_modules")
 	finish := time.Since(start)
@@ -40,14 +40,15 @@ func printDirectoryMap(counter int, path, prefix, exclude string) {
 		if exclude == file.Name() {
 			continue
 		}
-		// 3 white space
-		space := "   "
+		var space string
 		if i == len(files)-1 {
 			fmt.Println(prefix + "└── " + file.Name())
-			space = " " + space
+			// 4 white space
+			space = "    "
 		} else {
 			fmt.Println(prefix + "├── " + file.Name())
-			space = "│" + space
+			// line + 3 white space
+			space = "│   "
 		}
 		if file.IsDir() {
 			printDirectoryMap(counter+1, filepath.Join(path, file.Name()), prefix+space, exclude)
