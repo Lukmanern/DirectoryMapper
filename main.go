@@ -15,7 +15,7 @@ func main() {
 	banner.ShowBanner()
 	var baseDir string = "C:/xampp/htdocs/mengundang/app"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
-	printDirectoryMap(0, baseDir, "   ", "node_modules")
+	printDirectoryMap(0, baseDir, "   ", ".git")
 	finish := time.Since(start)
 	fmt.Println("\n Mapping duration: " + finish.String())
 }

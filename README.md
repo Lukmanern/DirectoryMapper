@@ -1,3 +1,5 @@
+![USAGE.PNG](https://raw.githubusercontent.com/Lukmanern/DirectoryMapper/master/usage.png)
+
 # Go Directory Mapper
 
 This program prints a tree-like structure of a directory, with the option to exclude files with a specific name.
@@ -10,17 +12,19 @@ Func `printDirectoryMap()` prints a tree-structure of a directory, excluding fil
 printDirectoryMap(counter int, path string, prefix string, exclude string)
 ```
 
-`counter`: the current recursion depth/ stacks (should be initialized to 0).
+`counter` : the current recursion depth/ stacks (should be initialized to 0).
 
-`path`: the path of the directory to print.
+`path` : the path of the directory to print.
 
-`prefix`: a prefix string for formatting the output.
+`prefix` : a prefix string for formatting the output.
 
-`exclude`: the name of the file to exclude (if any).
+`exclude` : the name of the file to exclude (if any).
 
 ## Note
 
 The recursion depth is capped at 100 to prevent potential stack overflows. If this limit is reached, the program will print ::::::::::MAX PRINT:::::::::: and terminate.
+
+Don't forget to change `baseDir` value
 
 ## Error Handling
 
