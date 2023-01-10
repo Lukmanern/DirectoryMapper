@@ -1,4 +1,4 @@
-![USAGE.PNG](https://raw.githubusercontent.com/Lukmanern/DirectoryMapper/master/usage.png)
+![example.PNG](https://raw.githubusercontent.com/Lukmanern/DirectoryMapper/master/example.png)
 
 # Go Directory Mapper
 
