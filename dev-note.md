@@ -1,5 +1,7 @@
 ## Note for Dev
 
-`fileInfo, err := os.Stat(baseDir)` [type FileInfo](https://pkg.go.dev/io/fs#FileInfo)
+`filepath.Join()` [path/filepath](https://pkg.go.dev/path/filepath#Join)
 
-[path/filepath](https://pkg.go.dev/path/filepath)
+note: it's DEPRECATED
+
+`ioutil.ReadDir()` [io/ioutil](https://pkg.go.dev/io/ioutil#ReadDir)
