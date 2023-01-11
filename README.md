@@ -25,7 +25,3 @@ printDirectoryMap(counter int, path string, prefix string, exclude string)
 The recursion depth is capped at 100 to prevent potential stack overflows. If this limit is reached, the program will print ::::::::::MAX PRINT:::::::::: and terminate.
 
 Don't forget to change `baseDir` value
-
-## Error Handling
-
-Errors are handled by the ErrorHandler function, which logs the error and exits the program.

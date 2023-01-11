@@ -2,7 +2,6 @@ package main
 
 import (
 	"DirectoryMapper/banner"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -20,12 +19,6 @@ func main() {
 	fmt.Println("\n Mapping duration: " + finish.String())
 }
 
-func ErrorHandler(err error) {
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
 func printDirectoryMap(counter uint, path, prefix, exclude string) {
 	// max 100+ stacks
 	if counter >= 100 {
@@ -35,8 +28,7 @@ func printDirectoryMap(counter uint, path, prefix, exclude string) {
 	// Read all the files/ folders in the current directory.
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
-		err = errors.New(fmt.Sprint(err.Error(), "at counter:", counter))
-		ErrorHandler(err)
+		log.Fatal(err)
 	}
 
 	for i, file := range files {
