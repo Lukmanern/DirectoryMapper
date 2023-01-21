@@ -3,8 +3,8 @@ package main
 import (
 	"DirectoryMapper/banner"
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"path/filepath"
 	"time"
 )
@@ -12,7 +12,7 @@ import (
 func main() {
 	start := time.Now()
 	banner.ShowBanner()
-	var baseDir string = "C:/xampp/htdocs/mengundang/app"
+	var baseDir string = "C:/Users/Lenovo/go/src/DB_CLI"
 	// baseDir = "C:/Users/Lenovo/OneDrive/Documents/Dev Go Directory Mapper"
 	printDirectoryMap(0, baseDir, "   ", ".git")
 	finish := time.Since(start)
@@ -26,7 +26,7 @@ func printDirectoryMap(counter uint, path, prefix, exclude string) {
 		return
 	}
 	// Read all the files/ folders in the current directory.
-	files, err := ioutil.ReadDir(path)
+	files, err := os.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
 	}
