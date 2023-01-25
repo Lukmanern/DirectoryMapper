@@ -3,7 +3,6 @@ package main
 import (
 	"DirectoryMapper/banner"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -28,7 +27,7 @@ func printDirectoryMap(counter uint, path, prefix, exclude string) {
 	// Read all the files/ folders in the current directory.
 	files, err := os.ReadDir(path)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	for i, file := range files {
